@@ -8,6 +8,7 @@ public class HomeController {
 
 	@GetMapping("/home")
 	public String Hello() {
+		System.out.println("ok ok");
 		return "Chao cac ban";
 	}
 }

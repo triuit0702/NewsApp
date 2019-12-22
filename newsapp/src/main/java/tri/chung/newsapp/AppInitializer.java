@@ -2,6 +2,8 @@ package tri.chung.newsapp;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import tri.chung.newsapp.config.WebMvcConfig;
+
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	@Override
@@ -11,13 +13,13 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] {};
+		return new Class[] {WebMvcConfig.class};
 	}
 
 	@Override
 	protected String[] getServletMappings() {
 		// TODO Auto-generated method stub
-		return null;
+		return new String[] {"/"};
 	}
 
 	
