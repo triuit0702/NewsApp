@@ -30,4 +30,5 @@ public class CategoryController {
 		}
 		return new ResponseEntity<CategoryEntity>(newCategory, null, HttpStatus.CREATED);
 	}
+
 }

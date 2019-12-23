@@ -8,7 +8,7 @@ import tri.chung.newsapp.entity.NewEntity;
 
 public interface NewService {
 
-	public void saveNew(NewEntity news);
+	public NewEntity saveNew(NewEntity news);
 	public List<NewEntity> getAllNews();
 	public NewEntity getNewsById(Long id);
 	public void deleteNews(Long id);
