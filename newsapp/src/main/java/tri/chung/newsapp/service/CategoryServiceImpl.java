@@ -16,4 +16,12 @@ public class CategoryServiceImpl implements CategoryService {
 		return categoryRepository.save(category);
 	}
 
+	public CategoryEntity findById(Long id) {
+		return categoryRepository.findById(id).orElse(null); 
+	}
+
+	public CategoryEntity findByCode(String code) {
+		// TODO Auto-generated method stub
+		return categoryRepository.findByCode(code);
+	}
 }

@@ -4,8 +4,11 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +24,8 @@ public class CategoryEntity extends AbtractEntity {
 	private String name;
 	@Column
 	private String code;
-	@OneToMany(mappedBy = "category")
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
 	private List<NewEntity> news;
 }

@@ -8,18 +8,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import lombok.Data;
+
+@Data
 @MappedSuperclass
 public class AbtractEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	protected Long id;
 	@Column
-	private Timestamp createdDate;
+	protected Timestamp createdDate;
 	@Column
-	private Timestamp modifedDate;
+	protected Timestamp modifedDate;
 	@Column
-	private String createdBy;
+	protected String createdBy;
 	@Column
-	private String modifiedBy;
+	protected String modifiedBy;
 }
