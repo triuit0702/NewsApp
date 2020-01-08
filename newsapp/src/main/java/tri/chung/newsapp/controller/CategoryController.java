@@ -1,8 +1,11 @@
 package tri.chung.newsapp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,5 +42,14 @@ public class CategoryController {
 			return new ResponseEntity<CategoryEntity>(null, null, HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<CategoryEntity>(cate, null, HttpStatus.OK);
+	}
+	
+	@GetMapping("/category")
+	public ResponseEntity<List<CategoryEntity>> getCategory() {
+		List<CategoryEntity> listCategory = categoryService.findAll();
+		if (CollectionUtils.isEmpty(listCategory)) {
+			return new ResponseEntity<List<CategoryEntity>>(null, null, HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<List<CategoryEntity>>(listCategory, null, HttpStatus.OK);
 	}
 }

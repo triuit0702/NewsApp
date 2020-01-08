@@ -1,5 +1,7 @@
 package tri.chung.newsapp.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +25,10 @@ public class CategoryServiceImpl implements CategoryService {
 	public CategoryEntity findByCode(String code) {
 		// TODO Auto-generated method stub
 		return categoryRepository.findByCode(code);
+	}
+
+	public List<CategoryEntity> findAll() {
+		// TODO Auto-generated method stub
+		return categoryRepository.findAll();
 	}
 }
