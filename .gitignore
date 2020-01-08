@@ -2,7 +2,7 @@
 
 .project
 
+.factorypath
 .settings/
 
 */target/**
-.factorypath
