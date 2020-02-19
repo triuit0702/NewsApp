@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import tri.chung.newsapp.dto.NewsDTO;
 import tri.chung.newsapp.entity.CategoryEntity;
 import tri.chung.newsapp.entity.NewEntity;
 import tri.chung.newsapp.service.CategoryService;
 import tri.chung.newsapp.service.NewService;
+import tri.chung.newsapp.utils.Utils;
 
 @RestController
 @RequestMapping("/news-api")
@@ -51,12 +53,23 @@ public class NewsController {
 	}
 
 	@GetMapping(path = "/News/{id}")
-	public ResponseEntity<NewEntity> getNews(@PathVariable("id") Long id) {
+	public ResponseEntity<NewsDTO> getNews(@PathVariable("id") Long id) {
 		NewEntity news = newService.getNewsById(id);
 		if (news == null) {
-			return new ResponseEntity<NewEntity>(null, null, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<NewsDTO>(null, null, HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<NewEntity>(news, null, HttpStatus.OK);
+		NewsDTO result = new NewsDTO();
+		NewsDTO newsDTO = null;
+		try {
+			newsDTO = (NewsDTO) Utils.mergeObject(result, news);
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ResponseEntity<NewsDTO>(newsDTO, null, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/News/{id}")
