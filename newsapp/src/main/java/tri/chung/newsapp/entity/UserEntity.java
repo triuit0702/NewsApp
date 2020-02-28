@@ -21,14 +21,14 @@ import lombok.Setter;
 @Table(name = "user")
 public class UserEntity extends AbtractEntity {
 
-	@Column
+	@Column(name="username")
 	private String userName;
-	@Column
+	@Column(name="password")
 	private String password;
-	@Column
+	@Column(name="fullname")
 	private String fullName;
 	@Column
-	private int status;
+	private Integer status;
 	@OneToMany(mappedBy = "user")
 	private List<CommenEntity> comment;
 	@ManyToMany
@@ -37,4 +37,12 @@ public class UserEntity extends AbtractEntity {
 		joinColumns = @JoinColumn(name = "user_id"),
 		inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<RoleEntity> roles = new HashSet<RoleEntity>();
+	
+	  public UserEntity() {}
+
+	  public UserEntity(String username, String password, String fullname) {
+	    this.userName = username;
+	    this.password = password;
+	    this.fullName = fullname;
+	  }
 }

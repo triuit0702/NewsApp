@@ -17,12 +17,12 @@ public class AbtractEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
-	@Column
-	protected Timestamp createdDate;
-	@Column
+	@Column(name="created_date")
+	protected Timestamp createddate;
+	@Column(name="modifed_date")
 	protected Timestamp modifedDate;
-	@Column
+	@Column(name="created_by")
 	protected String createdBy;
-	@Column
+	@Column(name="modified_by")
 	protected String modifiedBy;
 }
