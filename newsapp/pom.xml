@@ -9,7 +9,7 @@
 	<name>newsapp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<spring.version>5.2.1.RELEASE</spring.version>
+		<spring.version>5.3.18</spring.version>
 		<jackson-version>2.9.4</jackson-version>
 		<hibernate.validator>5.4.1.Final</hibernate.validator>
 		<spring-security.version>5.0.6.RELEASE</spring-security.version>
